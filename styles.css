@@ -4,3 +4,19 @@
     box-sizing: border-box;
     font-family: "Poppins", Courier;
 }
+img {
+    max-width: 100%;
+}
+.slider-game {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.container {
+    display: grid;
+    width: 25em;
+    height: 25em;
+    
+}

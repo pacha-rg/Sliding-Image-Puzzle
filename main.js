@@ -35,7 +35,7 @@ const checkAdjacent = (row1, row2, col1, col2) => {
     return false;
 };
 
-const randomImage = () => {
+const randomImages = () => {
     while(imagesArr.length < 8) {
         let randomVal = randomNumber();
         if (!imagesArr.includes(randomVal)){
@@ -43,4 +43,17 @@ const randomImage = () => {
         }
     }
     imagesArr.push(9);
+};
+
+const gridGenerator = () => {
+    let count = 0;
+    for (let i=0;i<3;i++) {
+        for (let j=0;j<3;j++) {
+            let div = document.createElement('div');
+            div.setAttribute('data-position', `${i}_${i}`);
+            div.addEventListener('click', selecImage);
+            div.classList.add('image-container');
+            div.innerHTML = `<img src=image_part`
+        }
+    }
 }

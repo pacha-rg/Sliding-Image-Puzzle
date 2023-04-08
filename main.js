@@ -60,3 +60,14 @@ const gridGenerator = () => {
     }
 };
 
+startButton.addEventListener('click', () => {
+    container.classList.remove('hide');
+    coverScreen.classList.add('hide');
+    container.innerHTML = '';
+    imagesArr = [];
+    randomImages();
+    gridGenerator();
+    movesCount = 0;
+    moves.innerText = `Moves: ${movesCount}`
+})
+

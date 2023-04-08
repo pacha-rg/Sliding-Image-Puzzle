@@ -17,6 +17,8 @@ img {
 .container {
     display: grid;
     width: 25em;
-    height: 25em;
-    
+    height: 25em;   
+}
+.hide {
+    display: none;
 }

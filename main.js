@@ -53,7 +53,10 @@ const gridGenerator = () => {
             div.setAttribute('data-position', `${i}_${i}`);
             div.addEventListener('click', selecImage);
             div.classList.add('image-container');
-            div.innerHTML = `<img src=image_part`
+            div.innerHTML = `<img src="image_part_00${imagesArr[count]}.png" class="image ${imageArr[count] == 9 ? "target" : "" } " data index="${imagesArr[count]}" />`;
+            count +=1;
+            container.appendChild(div)
         }
     }
-}
+};
+

@@ -9,13 +9,12 @@ const isTouchDevice = ()=> {
     try {
         document.createEvent("TouchEvent");
         return true;
-    }
-    catch (e) {
+    } catch (e) {
         return false;
     }
 };
 
-const randomNumber = () => Math.floor(Math.random()*8+1);
+const randomNumber = () => Math.floor(Math.random()*8+ 1);
 
 const getCoords = (element) => {
     const [row, col] = element.getAttribute("data-position").split("_");
@@ -36,9 +35,9 @@ const checkAdjacent = (row1, row2, col1, col2) => {
 };
 
 const randomImages = () => {
-    while(imagesArr.length < 8) {
+    while (imagesArr.length < 8) {
         let randomVal = randomNumber();
-        if (!imagesArr.includes(randomVal)){
+        if (!imagesArr.includes(randomVal)) {
             imagesArr.push(randomVal);
         }
     }
@@ -47,8 +46,8 @@ const randomImages = () => {
 
 const gridGenerator = () => {
     let count = 0;
-    for (let i=0;i<3;i++) {
-        for (let j=0;j<3;j++) {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
             let div = document.createElement('div');
             div.setAttribute('data-position', `${i}_${j}`);
             div.addEventListener('click', selectImage);
@@ -67,10 +66,10 @@ const selectImage = (e) => {
     let currentParent = currentElement.parentElement;
     let targetParent = targetElement.parentElement;
 
-    const [row1, col1]  = getCoords(currentParent);
+    const [row1, col1] = getCoords(currentParent);
     const [row2, col2] = getCoords(targetParent);
 
-    if(checkAdjacent(row1, row2, col1, col2)) {
+    if (checkAdjacent(row1, row2, col1, col2)) {
         currentElement.remove();
         targetElement.remove();
 
@@ -85,20 +84,23 @@ const selectImage = (e) => {
 
         let currentArrIndex = imagesArr.indexOf(currentIndex);
         let targetArrIndex = imagesArr.indexOf(targetIndex);
-        [imagesArr[currentArrIndex],imagesArr[targetArrIndex]] = [imagesArr[targetArrIndex] ,imagesArr[currentArrIndex]];
+        [imagesArr[currentArrIndex], imagesArr[targetArrIndex]] = [
+        imagesArr[targetArrIndex],
+        imagesArr[currentArrIndex],
+    ];
 
-        if(imagesArr.join('') == '123456789') {
+        if (imagesArr.join('') == '123456789') {
             setTimeout(() => {
                 coverScreen.classList.remove('hide');
                 container.classList.add('hide');
                 result.innerText = `Total Moves: ${movesCount}`;
                 startButton.innerText = 'Restart Game';
-            }, 1000)
+            }, 1000);
         }
         movesCount += 1;
         moves.innerText = `Moves: ${movesCount}`;
     }
-}
+};
 
 startButton.addEventListener('click', () => {
     container.classList.remove('hide');
@@ -115,5 +117,4 @@ window.onload = () => {
     coverScreen.classList.remove('hide');
     container.classList.add('hide');
 
-}
-
+};

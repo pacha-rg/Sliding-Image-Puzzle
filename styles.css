@@ -5,14 +5,15 @@
     font-family: "Poppins", Courier;
 }
 img {
-    max-width: 100%;
+    width: 70%;
 }
 .slider-game {
     width: 80%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .container {
     display: grid;
@@ -22,11 +23,17 @@ img {
     grid-auto-rows: 8em;
 }
 .original-image {
-    width: 25em;
-    height: 25em;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .image-container {
     border: 1px solid #ffffff;
+}
+.image-container img {
+    width: 80%;
 }
 .cover-screen {
     position: absolute;
